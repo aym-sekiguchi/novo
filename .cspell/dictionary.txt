@@ -1,0 +1,16 @@
+# Custom Dictionary Words
+blocktune
+bunx
+cmdk
+editorjs
+edjs
+firestore
+oklch
+proptypes
+recaptcha
+serviceworker
+sonner
+srgb
+tseslint
+turbopack
+vaul

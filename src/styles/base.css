@@ -1,0 +1,9 @@
+@layer base {
+	html {
+		@apply bg-neutral text-foreground;
+	}
+
+	.border {
+		@apply border-line;
+	}
+}

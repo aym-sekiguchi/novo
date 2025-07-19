@@ -1,0 +1,76 @@
+/* COLOR TOKENS */
+:root {
+	--primary: oklch(69.53% 0.1328 232.36);
+	/* --gray: oklch(68.18% 0.0383 218.8); */
+	--gray: var(--color-slate-500);
+	--green: var(--color-emerald-600);
+	--yellow: var(--color-yellow-400);
+	--red: var(--color-red-600);
+}
+
+/* LIGHT MODE TOKENS */
+:root {
+	--primary-foreground: color-mix(in srgb, var(--gray), white 90%);
+
+	--foreground: color-mix(in srgb, var(--gray), black 80%);
+	--background: color-mix(in srgb, var(--gray), white 90%);
+
+	--surface: color-mix(in srgb, var(--gray), white 94%);
+
+	--popover: color-mix(in srgb, var(--gray), white 96%);
+	--popover-foreground: color-mix(in srgb, var(--gray), black 86%);
+
+	--field: color-mix(in srgb, var(--gray), white 96%);
+
+	--line: color-mix(in srgb, var(--gray), white 76%);
+
+	--neutral: color-mix(in srgb, var(--gray), white 84%);
+	--neutral-foreground: var(--gray);
+
+	--link: var(--color-blue-600);
+	--link-foreground: var(--background);
+
+	--success: var(--green);
+	--success-foreground: var(--background);
+
+	--warning: var(--yellow);
+	--warning-foreground: var(--foreground);
+
+	--destructive: var(--red);
+	--destructive-foreground: var(--background);
+}
+
+.dark {
+	--green: var(--color-emerald-500);
+	--yellow: var(--color-yellow-300);
+	--red: var(--color-red-500);
+
+	--primary-foreground: color-mix(in srgb, var(--gray), black 80%);
+
+	--foreground: color-mix(in srgb, var(--gray), white 90%);
+	--background: color-mix(in srgb, var(--gray), black 72%);
+
+	--surface: color-mix(in srgb, var(--gray), black 64%);
+	--surface-foreground: color-mix(in srgb, var(--gray), white 92%);
+
+	--popover: color-mix(in srgb, var(--gray), black 72%);
+
+	--field: color-mix(in srgb, var(--gray), black 80%);
+
+	--line: color-mix(in srgb, var(--gray), black 40%);
+
+	--neutral: color-mix(in srgb, var(--gray), black 80%);
+	--neutral-foreground: color-mix(in srgb, var(--gray), white 30%);
+
+	--link: var(--color-blue-500);
+	--link-foreground: var(--foreground);
+
+	--success: var(--green);
+	--success-foreground: var(--foreground);
+
+	--warning: var(--yellow);
+	--warning-foreground: var(--background);
+
+	--destructive: var(--red);
+	--destructive-foreground: var(--foreground);
+}

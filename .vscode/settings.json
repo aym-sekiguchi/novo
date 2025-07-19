@@ -1,0 +1,24 @@
+{
+	// "eslint.options": {
+	// 	"flags": ["unstable_ts_config"]
+	// },
+	"eslint.useFlatConfig": true,
+	"editor.quickSuggestions": {
+		"strings": "on"
+	},
+	"cSpell.customDictionaries": {
+		"custom-dictionary-workspace": {
+			"name": "custom-dictionary-workspace",
+			"path": "${workspaceFolder:novo}/.cspell/dictionary.txt",
+			"addWords": true,
+			"scope": "workspace"
+		}
+	},
+	"cSpell.ignoreRegExpList": ["[０-９Ａ-Ｚａ-ｚぁ-んァ-ヶ亜-熙纊-黑]+"],
+	"cSpell.ignorePaths": ["node_modules", ".next"],
+	"material-icon-theme.folders.associations": {
+		".cspell": "resolver",
+		"actions": "controller"
+	},
+	"typescript.tsdk": "node_modules/typescript/lib"
+}

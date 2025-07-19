@@ -1,0 +1,60 @@
+@layer components {
+	/* 入力エリア */
+	.codex-editor--narrow .codex-editor__redactor {
+		@apply min-[651px]:!mr-0;
+	}
+
+	/* toolbar外側 */
+	.codex-editor--narrow .ce-toolbar__actions {
+		@apply min-[651px]:!right-full;
+	}
+
+	/* toolbar全体 */
+	.ce-toolbar__content {
+		@apply !max-w-none;
+	}
+
+	/* toolbarの中身 */
+	.ce-toolbar__actions {
+		@apply gap-1;
+	}
+
+	/* toolbarの+ */
+	.ce-toolbar__plus {
+		@apply !text-foreground hover:!bg-background hover:!border-line border border-transparent transition max-md:!bg-transparent;
+	}
+
+	/* toolbarの点 */
+	.ce-toolbar__settings-btn {
+		@apply !text-foreground hover:!bg-background hover:!border-line border border-transparent transition max-md:!bg-transparent;
+	}
+
+	/* block */
+	.ce-block__content {
+		@apply !max-w-none px-2;
+	}
+
+	/* block選択中 */
+	.ce-block--selected .ce-block__content {
+		@apply !bg-background;
+	}
+
+	/* marker */
+	.cdx-marker {
+		@apply !bg-warning/40 !px-0.5 !text-current;
+	}
+
+	/* delimiter */
+	.ce-delimiter {
+		@apply flex;
+	}
+	.ce-delimiter:before {
+		content: '' !important;
+		@apply border-line !h-px w-full !border-t !leading-0;
+	}
+
+	/* code */
+	.ce-code__textarea {
+		@apply !bg-background !border-line !text-foreground !min-h-[1em];
+	}
+}

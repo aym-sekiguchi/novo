@@ -1,0 +1,13 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@import './base.css';
+@import './theme.css';
+@import './color.css';
+@import './editor.css';
+
+@variant dark (&:where(.dark, .dark *));
+
+@utility container {
+	@apply mx-auto px-3 md:px-6;
+}

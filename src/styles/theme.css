@@ -1,0 +1,30 @@
+@theme {
+	/* COLORS */
+	--color-foreground: var(--foreground);
+	--color-background: var(--background);
+	--color-surface: var(--surface);
+
+	--color-popover: var(--popover);
+
+	--color-field: var(--field);
+
+	--color-line: var(--line);
+
+	--color-neutral: var(--neutral);
+	--color-neutral-foreground: var(--neutral-foreground);
+
+	--color-primary: var(--primary);
+	--color-primary-foreground: var(--primary-foreground);
+
+	--color-link: var(--link);
+	--color-link-foreground: var(--link-foreground);
+
+	--color-success: var(--success);
+	--color-success-foreground: var(--success-foreground);
+
+	--color-warning: var(--warning);
+	--color-warning-foreground: var(--warning-foreground);
+
+	--color-destructive: var(--destructive);
+	--color-destructive-foreground: var(--destructive-foreground);
+}
