@@ -4,7 +4,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "next dev --turbopack",
-		"build": "next build",
+		"build": "next build --turbopack",
 		"lint": "bunx eslint",
 		"start": "next start",
 		"eslint-inspector": "bunx @eslint/config-inspector@latest --config eslint.config.ts",
