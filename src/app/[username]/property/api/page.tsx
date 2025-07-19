@@ -24,7 +24,7 @@ export default async function Home(props: Readonly<PageProps>): Promise<React.Re
 	const { accessToken, isDraft } = await getProperty(username).catch(() => notFound())
 
 	// コード
-	const url = `https://novo.s-labo.tech/${username}/property`
+	const url = `https://novo.aymportfolio.com/api/${username}/property`
 	function code(props: { isDraft?: boolean }): string {
 		const { isDraft = false } = props
 
