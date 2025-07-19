@@ -24,7 +24,7 @@ const nextConfig: NextConfig = {
 	// 	})
 	// 	return config
 	// },
-	// output: 'standalone',
+	output: 'standalone',
 
 	/* config options here */
 	turbopack: {
