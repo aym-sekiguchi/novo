@@ -16,14 +16,6 @@ const nextConfig: NextConfig = {
 		],
 	},
 
-	// buildをwebpackでする場合
-	// webpack: (config) => {
-	// 	config.module?.rules?.push({
-	// 		test: /\.html$/i,
-	// 		use: 'raw-loader',
-	// 	})
-	// 	return config
-	// },
 	output: 'standalone',
 
 	/* config options here */
@@ -31,6 +23,15 @@ const nextConfig: NextConfig = {
 		rules: {
 			'*.html': { as: '*.js', loaders: ['raw-loader'] },
 		},
+	},
+
+	// buildをwebpackでする場合
+	webpack: (config) => {
+		config.module?.rules?.push({
+			test: /\.html$/i,
+			use: 'raw-loader',
+		})
+		return config
 	},
 }
 
