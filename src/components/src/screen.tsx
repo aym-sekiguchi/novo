@@ -333,11 +333,13 @@ function UserProfileMenu(props: { children: React.ReactNode }): React.ReactNode 
 	const { username } = useProject()
 	const { setTheme, theme } = useTheme()
 	const { setId, toggle } = use(AvatarFormContext)
+	// DropdownMenuの開閉状態を管理
+	const [dropdownOpen, setDropdownOpen] = useState(false)
 
 	/* === return === */
 	return (
 		<>
-			<DropdownMenu>
+			<DropdownMenu onOpenChange={setDropdownOpen} open={dropdownOpen}>
 				<DropdownMenuTrigger asChild>{children}</DropdownMenuTrigger>
 				<DropdownMenuContent align="end" className="w-fit" side="right">
 					<DropdownMenuGroup>
@@ -365,12 +367,17 @@ function UserProfileMenu(props: { children: React.ReactNode }): React.ReactNode 
 						<DropdownMenuItem>
 							<LogoutButton />
 						</DropdownMenuItem>
-						<DropdownMenuItem onClick={(e) => e.preventDefault()}>
+						<DropdownMenuItem>
 							<Button
 								className="bg-unset flex h-auto items-center gap-2 border-none !p-0 text-sm"
 								onClick={() => {
-									toggle()
-									setId(username)
+									// まずドロップダウンを閉じる
+									setDropdownOpen(false)
+									// 少し遅延してからダイアログを開く
+									setTimeout(() => {
+										toggle()
+										setId(username)
+									}, 100)
 								}}
 								variant="secondary"
 							>

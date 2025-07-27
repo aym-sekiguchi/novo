@@ -1,7 +1,10 @@
+import { House } from 'lucide-react'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import { getProject, getSession } from '@/actions'
 import { getProperty } from '@/actions/src/get-property'
+import { LogoutButton } from '@/components'
 
 import type { Metadata } from 'next'
 
@@ -34,12 +37,12 @@ export default async function RootLayout(props: PropertyLayoutProps): Promise<Re
 	const { role } = await getSession()
 
 	// 物件概要を取得
-	await getProperty(username)
+	const propertyStatus = await getProperty(username)
 		.then((response) => {
-			if (response.isPublic || (!response.isPublic && role === 'admin')) {
-				return
+			if (response.isPublic || role === 'admin') {
+				return true
 			} else {
-				throw new Error('物件概要が有効ではありません。')
+				return false
 			}
 		})
 		.catch((error) => {
@@ -48,5 +51,21 @@ export default async function RootLayout(props: PropertyLayoutProps): Promise<Re
 		})
 
 	/* === return === */
-	return children
+	return propertyStatus ? (
+		children
+	) : (
+		<div className="mx-auto flex w-fit flex-1 flex-col items-center justify-center gap-6">
+			<div className="flex flex-col items-center justify-center">
+				<p className="text-xl">物件概要は現在停止中です。</p>
+				<p className="text-sm">稼働させる場合は管理者までお問い合わせください。</p>
+			</div>
+			<Link className="border-line bg-background flex w-fit items-center gap-2 rounded-xl border px-4 py-2" href="/">
+				<House size={18} />
+				<p>ホームへ</p>
+			</Link>
+			<div className="border-line bg-background flex w-fit rounded-xl border px-4 py-2">
+				<LogoutButton />
+			</div>
+		</div>
+	)
 }
