@@ -7,8 +7,6 @@ const firebaseAdminConfig = {
 	projectId: process.env.FIREBASE_PROJECT_ID,
 }
 
-console.log('Firebase Admin Config:', firebaseAdminConfig.privateKey)
-
 // 認証情報
 const credential = cert(firebaseAdminConfig)
 
