@@ -28,7 +28,6 @@ export function LogoutButton(props: { variant?: 'default' | 'icon' }): React.Rea
 
 		if (result.status === 200) {
 			toast.success('ログアウトしました。', { duration: 5000, id: toastId })
-			setIsSubmitting(false)
 			router.push('/login')
 		} else {
 			toast.error('ログアウトに失敗しました。', { duration: 5000, id: toastId })
@@ -41,6 +40,11 @@ export function LogoutButton(props: { variant?: 'default' | 'icon' }): React.Rea
 			document.body.style.pointerEvents = 'none'
 			document.body.style.cursor = 'not-allowed'
 		} else {
+			document.body.style.pointerEvents = 'auto'
+			document.body.style.cursor = 'auto'
+		}
+		// クリーンアップ関数：コンポーネントがアンマウントされる時にスタイルをリセット
+		return (): void => {
 			document.body.style.pointerEvents = 'auto'
 			document.body.style.cursor = 'auto'
 		}

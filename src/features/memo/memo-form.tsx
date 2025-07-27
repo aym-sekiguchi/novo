@@ -37,20 +37,23 @@ export function MemoForm(props: { initialValue: string; username: string }): Rea
 				}
 
 				// 前回と今回の画像のリストを取得
-				const currentData = JSON.parse(base64.decode(values.memo)) as OutputData
-				const currentDataImages = extractImageUrls(currentData)
-				const previousData = JSON.parse(base64.decode(initialValue)) as OutputData
-				const previousDataImages = extractImageUrls(previousData)
+				if (initialValue) {
+					const currentData = JSON.parse(base64.decode(values.memo)) as OutputData
+					const currentDataImages = extractImageUrls(currentData)
+					const previousData = JSON.parse(base64.decode(initialValue)) as OutputData
+					console.log(previousData)
+					const previousDataImages = extractImageUrls(previousData)
+					console.log(previousDataImages)
 
-				// 画像リストを比較し、削除された画像をstorageから削除
-				await Promise.all(
-					previousDataImages.map(async (url: string) => {
-						if (!currentDataImages.includes(url)) {
-							await deleteFile({ url })
-						}
-					}),
-				)
-
+					// 画像リストを比較し、削除された画像をstorageから削除
+					await Promise.all(
+						previousDataImages.map(async (url: string) => {
+							if (!currentDataImages.includes(url)) {
+								await deleteFile({ url })
+							}
+						}),
+					)
+				}
 				return await memoAction({ id: username, values })
 
 				// エラー処理

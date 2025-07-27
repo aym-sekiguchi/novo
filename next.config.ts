@@ -16,8 +16,6 @@ const nextConfig: NextConfig = {
 		],
 	},
 
-	output: 'standalone',
-
 	/* config options here */
 	turbopack: {
 		rules: {
@@ -26,13 +24,13 @@ const nextConfig: NextConfig = {
 	},
 
 	// buildをwebpackでする場合
-	webpack: (config) => {
-		config.module?.rules?.push({
-			test: /\.html$/i,
-			use: 'raw-loader',
-		})
-		return config
-	},
+	// webpack: (config) => {
+	// 	config.module?.rules?.push({
+	// 		test: /\.html$/i,
+	// 		use: 'raw-loader',
+	// 	})
+	// 	return config
+	// },
 }
 
 export default nextConfig
