@@ -41,9 +41,7 @@ export function MemoForm(props: { initialValue: string; username: string }): Rea
 					const currentData = JSON.parse(base64.decode(values.memo)) as OutputData
 					const currentDataImages = extractImageUrls(currentData)
 					const previousData = JSON.parse(base64.decode(initialValue)) as OutputData
-					console.log(previousData)
 					const previousDataImages = extractImageUrls(previousData)
-					console.log(previousDataImages)
 
 					// 画像リストを比較し、削除された画像をstorageから削除
 					await Promise.all(

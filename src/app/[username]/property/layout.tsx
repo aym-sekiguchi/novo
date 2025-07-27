@@ -43,7 +43,6 @@ export default async function RootLayout(props: PropertyLayoutProps): Promise<Re
 				return true
 			} else {
 				return false
-				// throw new Error('物件概要が有効ではありません。')
 			}
 		})
 		.catch((error) => {
