@@ -16,8 +16,13 @@ const app = !getApps().length ? initializeApp({ credential }) : getApps()[0]
 // データベースアプリ
 const store = getFirestore(app)
 
-// gRPCを使わずREST通信に切り替える設定を追加（Vercel対応）
-store.settings({ preferRest: true })
+const globalAny = globalThis as { __firestoreSettingsApplied?: boolean }
+
+if (!globalAny.__firestoreSettingsApplied) {
+	// gRPCを使わずREST通信に切り替える設定を追加（Vercel対応）
+	store.settings({ preferRest: true })
+	globalAny.__firestoreSettingsApplied = true
+}
 
 /* === export === */
 export { app, store }
